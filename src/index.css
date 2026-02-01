@@ -16,3 +16,12 @@
 .container {
   width: 1280px;
 }
+
+body {
+  font-family: poppins, sans-serif;
+  font-weight: 400;
+}
+
+.pos-sticky {
+  position: sticky;
+}

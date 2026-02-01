@@ -19,7 +19,7 @@ const Header = () => {
   ];
 
   return (
-    <div className="border-b border-gray-200">
+    <div className="sticky top-0 z-2 bg-white border-b border-gray-200 ">
       <TopBar />
 
       {/* Main Header */}
@@ -61,16 +61,28 @@ const Header = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <FaBars
-            className="h-5 w-5 cursor-pointer md:hidden"
-            onClick={() => setMobileMenu(!mobileMenu)}
-          />
+          <div className="md:hidden">
+            <button
+              onClick={() => setMobileMenu(!mobileMenu)}
+              className="flex flex-col justify-between w-6 h-5 "
+            >
+              <span
+                className={`w-full h-1 bg-black rounded transition-transform ${mobileMenu ? "rotate-45 translate-y-3" : "rotate-0"}`}
+              ></span>
+              <span
+                className={`w-full h-1 bg-black rounded transition-opacity ${mobileMenu ? "opacity-0" : ""}`}
+              ></span>
+              <span
+                className={`w-full h-1 bg-black rounded transition-transform ${mobileMenu ? "-rotate-45 -translate-y-3" : "rotate-0"}`}
+              ></span>
+            </button>
+          </div>
         </div>
       </div>
 
       {/* Mobile Navigation */}
       {mobileMenu && (
-        <div className="md:hidden bg-white border-t">
+        <div className="md:hidden transition-all duration-300 bg-white border-y border-gray-200">
           <div className="flex flex-col gap-3 px-4 py-4">
             {navigations.map((nav, i) => (
               <NavLink
