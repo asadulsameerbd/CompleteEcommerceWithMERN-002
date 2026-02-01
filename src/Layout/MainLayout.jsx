@@ -10,9 +10,9 @@ const MainLayout = () => {
       <Header />
 
       {/* main content */}
-      <div className="min-h-130">
+      <main className="min-h-130">
         <Outlet />
-      </div>
+      </main>
 
       {/* footer */}
       <Footer />
